@@ -1,0 +1,26 @@
+galaxy_info:
+  author: Hassan Maher
+  description: An Ansible Role to deploy a Note-Taking Web App using Python Flask and SQLite on AWS EC2 Amazon Linux.
+  company: Faculty of Electronic Engineering - Dept of Electronics & Communications
+  
+ 
+  license: MIT
+
+  min_ansible_version: 2.9
+
+  
+  platforms:
+    - name: Amazon
+      versions:
+        - all
+
+ 
+  galaxy_tags:
+    - python
+    - flask
+    - sqlite
+    - web
+    - devops
+    - aws
+
+dependencies: []

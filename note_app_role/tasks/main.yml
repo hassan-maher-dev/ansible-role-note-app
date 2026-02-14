@@ -1,0 +1,44 @@
+---
+# tasks file for note_app_role
+
+- name: Update repositories
+  yum:
+    name: '*'
+    state: latest
+  when: ansible_os_family == "RedHat"
+
+- name: Install Python3 and Pip
+  yum:
+    name:
+      - python3
+      - python3-pip
+    state: present
+
+- name: Install Flask library
+  pip:
+    name: flask
+    executable: pip3
+
+- name: Create project directory
+  file:
+    path: /opt/note_app
+    state: directory
+    mode: '0755'
+
+- name: Copy application code
+  copy:
+    src: app.py
+    dest: /opt/note_app/app.py
+    mode: '0644'
+
+- name: Setup Systemd Service for the App
+  template:
+    src: app.service.j2
+    dest: /etc/systemd/system/noteapp.service
+  notify: Restart App
+
+- name: Ensure service is running and enabled
+  service:
+    name: noteapp
+    state: started
+    enabled: yes

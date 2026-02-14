@@ -1,0 +1,7 @@
+---
+# handlers file for note_app role
+- name: Restart App
+  service:
+    name: noteapp
+    state: restarted
+  become: yes

@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve Note App
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/opt/note_app_role
+ExecStart=/usr/bin/python3 app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
