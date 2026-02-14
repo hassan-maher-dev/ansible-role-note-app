@@ -6,33 +6,43 @@ An Ansible Role that automates the deployment of a Python Flask-based Note-Takin
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+    Operating System: Amazon Linux 2 or RHEL-based distributions.
+    Privileges: Root or sudo access is required to install packages and manage services.
+    Network: Inbound access to Port 80 (HTTP) must be allowed in the security group.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Currently, this role uses hardcoded paths for simplicity in the college project. However, you can modify:
+
+    DB_FILE: The location of the SQLite database (default is /opt/note_app/notes.db).
+    Port: The application is configured to bind to Port 80 within app.py.
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None. This role is standalone and does not require other Galaxy roles to function.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Including an example of how to use your role:
 
-    - hosts: servers
+    - hosts: web
+      become: yes
       roles:
-         - { role: username.rolename, x: 42 }
+         - hassan_maher_dev.note_app
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Hassan Maher
+
+        Electronics & Communications Engineering Student.
+        Digital Egypt Builders Initiative (DEBI) - DevOps Track.
+        GitHub: https://github.com/hassan-maher-dev .
