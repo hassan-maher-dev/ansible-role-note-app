@@ -1,7 +1,7 @@
-Role Name
+note_app
 =========
 
-A brief description of the role goes here.
+An Ansible Role that automates the deployment of a Python Flask-based Note-Taking application on RedHat/Amazon Linux systems. It handles the installation of Python, Pip, and Flask, sets up the application as a systemd service, and configures the environment to run on Port 80.
 
 Requirements
 ------------
